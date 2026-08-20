@@ -711,8 +711,21 @@
     .reviewer-name { font-size: 0.9rem; font-weight: 600; color: var(--teal-dk); }
     .reviewer-loc { font-size: 0.76rem; color: var(--text-muted); }
 
-    /* ── Google Maps CTA ── */
-    .gmaps-cta {
+    .review-video-card {
+      background: var(--white);
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.25s;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .review-video-card:hover { border-color: rgba(212,88,10,0.3); box-shadow: var(--shadow); }
+    .review-video-card iframe { border-radius: var(--r-md) !important; }
+
+    /* ── Social Follow CTA ── */
+    .social-cta {
       margin-top: 56px;
       background: var(--teal-dk);
       border-radius: var(--r-lg);
@@ -723,9 +736,9 @@
       align-items: center;
       color: #fff;
     }
-    .gmaps-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
-    .gmaps-sub { font-size: 0.9rem; opacity: 0.75; }
-    .btn-maps {
+    .social-cta-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+    .social-cta-sub { font-size: 0.9rem; opacity: 0.75; }
+    .btn-social {
       background: #fff;
       color: var(--teal-dk);
       padding: 14px 28px;
@@ -740,7 +753,7 @@
       cursor: pointer;
       border: none;
     }
-    .btn-maps:hover { background: var(--gold-lt); }
+    .btn-social:hover { background: var(--gold-lt); }
 
     /* ══════════ ENQUIRY FORM ══════════ */
     #enquiry { background: var(--white); }
@@ -975,7 +988,7 @@
       .enquiry-wrap { grid-template-columns: 1fr; gap: 40px; }
       .about-wrap { grid-template-columns: 1fr; gap: 40px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .gmaps-cta { grid-template-columns: 1fr; text-align: center; }
+      .social-cta { grid-template-columns: 1fr; text-align: center; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
     }
@@ -1031,8 +1044,8 @@
     <li class="nav-dropdown">
       <a href="#courses">Courses</a>
       <ul class="dropdown-menu">
-        <li><a href="#course-tamil"><span class="d-icon">🔤</span> Learn Tamil</a></li>
-        <li><a href="#course-hindi"><span class="d-icon">🇮🇳</span> Learn Hindi</a></li>
+        <li><a href="#course-tamil"><span class="d-icon">அ</span> Learn Tamil</a></li>
+        <li><a href="#course-hindi"><span class="d-icon">अ</span> Learn Hindi</a></li>
         <li><a href="#course-malayalam"><span class="d-icon">🌴</span> Learn Malayalam</a></li>
         <li><a href="#course-maths"><span class="d-icon">➕</span> Learn Maths</a></li>
         <li><a href="#course-crochet"><span class="d-icon">🧶</span> Crochet</a></li>
@@ -1051,8 +1064,8 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
   <span class="mobile-close" onclick="closeMenu()">✕</span>
-  <a href="#course-tamil" onclick="closeMenu()">🔤 Tamil</a>
-  <a href="#course-hindi" onclick="closeMenu()">🇮🇳 Hindi</a>
+  <a href="#course-tamil" onclick="closeMenu()">அ Tamil</a>
+  <a href="#course-hindi" onclick="closeMenu()">अ Hindi</a>
   <a href="#course-malayalam" onclick="closeMenu()">🌴 Malayalam</a>
   <a href="#course-maths" onclick="closeMenu()">➕ Maths</a>
   <a href="#course-crochet" onclick="closeMenu()">🧶 Crochet</a>
@@ -1091,12 +1104,12 @@
   <div class="hero-visual">
     <div class="hero-card-grid">
       <div class="course-pill" onclick="scrollToCourse('course-tamil')" style="cursor:pointer;" title="Learn Tamil Online">
-        <div class="emoji">🔤</div>
+        <div class="emoji">அ</div>
         <div class="name">Tamil</div>
         <div class="tag">Language · Culture</div>
       </div>
       <div class="course-pill" onclick="scrollToCourse('course-hindi')" style="cursor:pointer;" title="Learn Hindi Online">
-        <div class="emoji">🇮🇳</div>
+        <div class="emoji">अ</div>
         <div class="name">Hindi</div>
         <div class="tag">Spoken · Written</div>
       </div>
@@ -1104,6 +1117,11 @@
         <div class="emoji">🌴</div>
         <div class="name">Malayalam</div>
         <div class="tag">Script · Conversation</div>
+      </div>
+      <div class="course-pill" onclick="scrollToCourse('course-maths')" style="cursor:pointer;" title="Online Maths Tuition">
+        <div class="emoji">➕</div>
+        <div class="name">Maths</div>
+        <div class="tag">All Boards · All Ages</div>
       </div>
     </div>
     <div class="hero-trust">
@@ -1187,7 +1205,7 @@
     <!-- Tamil -->
     <div class="course-card reveal" id="course-tamil">
       <div class="course-header" data-script="தமிழ்">
-        <div class="course-icon">🔤</div>
+        <div class="course-icon">அ</div>
         <div class="course-title">Learn Tamil Online</div>
         <div class="course-sub">Kids & Adults · All Levels</div>
       </div>
@@ -1207,7 +1225,7 @@
     <!-- Hindi -->
     <div class="course-card reveal" id="course-hindi">
       <div class="course-header" data-script="हिन्दी" style="background:linear-gradient(135deg,#1A5276,#2E86C1)">
-        <div class="course-icon">🇮🇳</div>
+        <div class="course-icon">अ</div>
         <div class="course-title">Learn Hindi Online</div>
         <div class="course-sub">Kids & Adults · All Levels</div>
       </div>
@@ -1353,6 +1371,22 @@
   <p class="section-sub reveal">Hear from parents across the globe whose children have blossomed with The Online Master.</p>
 
   <div class="reviews-grid">
+    <div class="review-video-card reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVJDwi4E7vh/" data-instgrm-version="14" style="margin:0; width:100%;"></blockquote>
+    </div>
+    <div class="review-video-card reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DV01rIrjAMa/" data-instgrm-version="14" style="margin:0; width:100%;"></blockquote>
+    </div>
+    <div class="review-video-card reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DKAQtEjzzZW/" data-instgrm-version="14" style="margin:0; width:100%;"></blockquote>
+    </div>
+    <div class="review-video-card reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Db5ybHZAh7n/" data-instgrm-version="14" style="margin:0; width:100%;"></blockquote>
+    </div>
+    <div class="review-video-card reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DE4oLIhy4Ai/" data-instgrm-version="14" style="margin:0; width:100%;"></blockquote>
+    </div>
+
     <div class="review-card reveal">
       <div class="review-stars">★★★★★</div>
       <p class="review-text">"As a working mom, online classes were a blessing. My child learns Hindi and Tamil from The Online Master, and I joined a basic spoken Tamil class myself to keep up. The flexibility and quality of teaching are fantastic."</p>
@@ -1413,29 +1447,29 @@
       </div>
     </div>
 
-    <!-- Add Your Review -->
+    <!-- More Reviews on Instagram -->
     <div class="review-card reveal" style="border: 2px dashed rgba(212,88,10,0.3); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 28px;">
-      <div style="font-size:2.5rem; margin-bottom:12px;">⭐</div>
-      <div style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700; color:var(--teal-dk); margin-bottom:10px;">Share Your Experience</div>
-      <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:20px;">Your feedback helps other families discover The Online Master and helps us grow.</p>
-      <a href="https://g.page/r/theonlinemaster/review" target="_blank" class="btn-primary" style="font-size:0.84rem; padding:12px 24px;">
-        ⭐ Write a Google Review
+      <div style="font-size:2.5rem; margin-bottom:12px;">🎥</div>
+      <div style="font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700; color:var(--teal-dk); margin-bottom:10px;">More Video Reviews</div>
+      <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:20px;">Watch real video reviews from our students and parents on Instagram.</p>
+      <a href="https://www.instagram.com/stories/highlights/18080986339621599/" target="_blank" class="btn-primary" style="font-size:0.84rem; padding:12px 24px;">
+        📸 Watch on Instagram
       </a>
     </div>
   </div>
 
-  <!-- Google Maps CTA -->
-  <div class="gmaps-cta reveal">
+  <!-- Social Follow CTA -->
+  <div class="social-cta reveal">
     <div>
-      <div class="gmaps-title">📍 Find Us on Google Maps</div>
-      <div class="gmaps-sub">Read all our reviews, see our location, and leave your own rating on Google Maps. Your review means the world to us and helps other families find us.</div>
+      <div class="social-cta-title">📸 Follow Us on Instagram &amp; Facebook</div>
+      <div class="social-cta-sub">See daily updates, class highlights, and video reviews from our students and parents.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:12px; align-items:center;">
-      <a href="https://www.google.com/maps/search/The+Online+Master+TOM+Virtual+School" target="_blank" class="btn-maps">
-        🗺️ View on Google Maps
+      <a href="https://www.instagram.com/theonlinemaster/" target="_blank" class="btn-social">
+        📸 Follow on Instagram
       </a>
-      <a href="https://g.page/r/theonlinemaster/review" target="_blank" class="btn-maps" style="background:var(--gold-lt);">
-        ⭐ Leave a Review
+      <a href="https://www.facebook.com/theonlinemaster.official/" target="_blank" class="btn-social" style="background:var(--gold-lt);">
+        f Follow on Facebook
       </a>
     </div>
   </div>
@@ -1564,10 +1598,10 @@
 
       <div class="success-msg" id="successMsg">
         <div style="font-size:2rem;margin-bottom:10px;">🎉</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--teal-dk);margin-bottom:8px;">Enquiry Received!</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--teal-dk);margin-bottom:8px;">One Last Step!</div>
         <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:24px;line-height:1.7;">
-          Thank you! We've noted your details and will get back to you within 24 hours to schedule your free trial class.<br/>
-          To reach us faster, choose how you'd like to send your details:
+          Your details are ready — tap a button below to actually send them to us: one opens WhatsApp, the other opens your email app.<br/>
+          Once sent, we'll get back to you within 24 hours to schedule your free trial class.
         </p>
         <div style="display:flex;flex-direction:column;gap:12px;">
           <a id="waLink" href="#" target="_blank" class="btn-whatsapp" style="justify-content:center;text-decoration:none;border-radius:var(--r-sm);position:relative;">
@@ -1684,6 +1718,7 @@
         <li><a href="#about">About Us</a></li>
         <li><a href="#awards">Awards</a></li>
         <li><a href="#reviews">Reviews</a></li>
+        <li><a href="https://linktr.ee/The_Online_Master" target="_blank" rel="noopener">Careers</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1693,7 +1728,7 @@
         <li><a href="https://wa.me/919042742866" target="_blank">WhatsApp Us</a></li>
         <li><a href="mailto:support@theonlinemaster.com">Email Us</a></li>
         <li><a href="#countries">Countries We Serve</a></li>
-        <li><a href="https://g.page/r/theonlinemaster/review" target="_blank">Leave a Review</a></li>
+        <li><a href="https://www.instagram.com/stories/highlights/18080986339621599/" target="_blank">Watch Video Reviews</a></li>
       </ul>
     </div>
   </div>
@@ -1819,9 +1854,12 @@
   });
 
   /* ── Stagger reveal delays ── */
-  document.querySelectorAll('.courses-grid .course-card, .why-grid .why-card, .reviews-grid .review-card, .awards-grid .award-card').forEach((el, i) => {
+  document.querySelectorAll('.courses-grid .course-card, .why-grid .why-card, .reviews-grid .review-card, .reviews-grid .review-video-card, .awards-grid .award-card').forEach((el, i) => {
     el.style.transitionDelay = `${(i % 3) * 0.1}s`;
   });
 </script>
+
+<!-- ── Instagram video review embeds ── -->
+<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
